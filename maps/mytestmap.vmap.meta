@@ -1,0 +1,10 @@
+{
+  "cloud_packages": [
+    "eurorp.warning#8546",
+    "degg.f_table_small#8208"
+  ],
+  "game_packages": [
+    "local.fish_bites"
+  ],
+  "addon_packages": []
+}

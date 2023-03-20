@@ -17,6 +17,8 @@ partial class Pawn : AnimatedEntity
 		// Use a watermelon model
 		//
 		SetModel( "models/sbox_props/watermelon/watermelon.vmdl" );
+		SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
+		Tags.Add( "player " );
 
 		EnableDrawing = true;
 		EnableHideInFirstPerson = true;
@@ -59,7 +61,8 @@ partial class Pawn : AnimatedEntity
 		// apply it to our position using MoveHelper, which handles collision
 		// detection and sliding across surfaces for us
 		MoveHelper helper = new MoveHelper( Position, Velocity );
-		helper.Trace = helper.Trace.Size( 16 );
+		helper.Trace = helper.Trace.Size( 16 )
+			.Ignore( this );
 		if ( helper.TryMove( Time.Delta ) > 0 )
 		{
 			Position = helper.Position;
